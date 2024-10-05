@@ -10,7 +10,7 @@ function domLoaded() {
     const weatherImage = document.getElementById("weatherImage");
     const errorMessage = document.getElementById("errorMessage");
 
-    // event listeners to prevent celcius and fahrenheit from being input at the same time
+    // event listeners to prevent celsius and fahrenheit from being input at the same time
     cInput.addEventListener("input", function() {
         fInput.value = "";
     })
@@ -20,7 +20,7 @@ function domLoaded() {
 
     // convert buttons event handler
     convertButton.addEventListener("click", function() {
-        var celcius = parseFloat(cInput.value)
+        var celsius = parseFloat(cInput.value)
         var fahrenheit = parseFloat(fInput.value)
 
         if(!isNaN(fahrenheit)){
@@ -28,12 +28,12 @@ function domLoaded() {
             setImage(fahrenheit);
             errorMessage.textContent = ""
         }
-        else if (!isNaN(celcius)){
-            fInput.value = convertCtoF(celcius).toFixed(0);
-            setImage(convertCtoF(celcius))
+        else if (!isNaN(celsius)){
+            fInput.value = convertCtoF(celsius).toFixed(0);
+            setImage(convertCtoF(celsius))
             errorMessage.textContent = ""
         }
-        else if (isNaN(celcius) || isNaN(fahrenheit)) {
+        else if (isNaN(celsius) || isNaN(fahrenheit)) {
             errorMessage.textContent = `${cInput.value || fInput.value} is not a number`
         }
     })
@@ -62,9 +62,9 @@ function convertFtoC(fahrenheitDegree) {
     return (fahrenheitDegree - 32) * 5/9
 }
 
-function convertCtoF(celciusDegree) {
+function convertCtoF(celsiusDegree) {
     // returns celcius conversion
-    return celciusDegree * 9/5 + 32
+    return celsiusDegree * 9/5 + 32
 }
 
 
